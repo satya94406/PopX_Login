@@ -40,6 +40,10 @@ const CreateAccount = () => {
             placeholder="Marry Doe"
             variant="outlined"
             margin="normal"
+            InputLabelProps={{ 
+              shrink: true,
+              classes: { asterisk: 'Mui-error' },
+            }}
           />
 
           <TextField
@@ -52,6 +56,10 @@ const CreateAccount = () => {
             placeholder="9876543210"
             variant="outlined"
             margin="normal"
+            InputLabelProps={{ 
+              shrink: true,
+              classes: { asterisk: 'Mui-error' },
+            }}
           />
 
           <TextField
@@ -64,6 +72,10 @@ const CreateAccount = () => {
             placeholder="example@gmail.com"
             variant="outlined"
             margin="normal"
+            InputLabelProps={{ 
+              shrink: true,
+              classes: { asterisk: 'Mui-error' },
+            }}
           />
 
           <TextField
@@ -77,7 +89,11 @@ const CreateAccount = () => {
             placeholder="******"
             variant="outlined"
             margin="normal"
-          />
+            InputLabelProps={{ 
+              shrink: true,
+              classes: { asterisk: 'Mui-error' },
+            }}        
+            />
 
           <TextField
             fullWidth
@@ -88,16 +104,21 @@ const CreateAccount = () => {
             placeholder="PopX"
             variant="outlined"
             margin="normal"
-          />
+            InputLabelProps={{ 
+              shrink: true,
+              classes: { asterisk: 'Mui-error' },
+            }}          
+
+            />
         </Box>
 
         <div className="flex flex-col w-full mt-4">
           <label className="text-sm font-medium text-purple-600 mb-2">
             Are you Agency? <span className="text-red-500">*</span>
           </label>
-          <div className='flex '> 
+          <div className='flex'>
             <label className="flex mr-8">
-             <input
+              <input
                 type="radio"
                 value="option1"
                 checked={selectedOption === "option1"}
