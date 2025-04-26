@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  
+import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const CreateAccount = () => {
   const [name, setName] = useState("");
@@ -15,105 +17,102 @@ const CreateAccount = () => {
   };
 
   const handleSubmit = () => {
-      navigate("/allreadyUser");
+    navigate("/allreadyUser");
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 ">
-      <div className="w-4/5 lg:w-1/5 bg-white shadow-xl p-4">
-        <div className="text-left mb-2">
-          <h1 className="font-bold text-3xl ">
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="w-4/5 lg:w-1/5 bg-white shadow-xl p-6">
+        <div className="text-left mb-4">
+          <h1 className="font-bold text-3xl">
             Create your <p>PopX account</p>
           </h1>
         </div>
 
-        <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Full Name<span className="text-red-500 text-left">*</span>
-          </label>
-          <input
-            type="text"
+        <Box component="form" noValidate autoComplete="off">
+          <TextField
+            required
+            fullWidth
+            id="full-name"
+            label="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Marry Doe"
+            variant="outlined"
+            margin="normal"
           />
-        </div>
 
-        <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Phone number<span className="text-red-500 text-left">*</span>
-          </label>
-          <input
-            type="text"
+          <TextField
+            required
+            fullWidth
+            id="phone-no"
+            label="Phone Number"
             value={phone_no}
             onChange={(e) => setPhone_no(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="9876543210"
+            variant="outlined"
+            margin="normal"
           />
-        </div>
 
-        <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Email address<span className="text-red-500 text-left">*</span>
-          </label>
-          <input
-            type="text"
+          <TextField
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="example@gmail.com"
+            variant="outlined"
+            margin="normal"
           />
-        </div>
 
-        <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Password<span className="text-red-500 text-left">*</span>
-          </label>
-          <input
+          <TextField
+            required
+            fullWidth
             type="password"
+            id="password"
+            label="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="******"
+            variant="outlined"
+            margin="normal"
           />
-        </div>
 
-        <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Company name<span className="text-red-500 text-left">*</span>
-          </label>
-          <input
-            type="text"
+          <TextField
+            fullWidth
+            id="company"
+            label="Company Name"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="PopX"
+            variant="outlined"
+            margin="normal"
           />
-        </div>
+        </Box>
 
         <div className="flex flex-col w-full mt-4">
-          <label className="text-sm font-medium text-purple-600 mb-1">
-            Are you Agency?<span className="text-red-500 text-left">*</span>
+          <label className="text-sm font-medium text-purple-600 mb-2">
+            Are you Agency? <span className="text-red-500">*</span>
           </label>
-          <div>
-            <label>
-              <input
-                type='radio'
+          <div className='flex '> 
+            <label className="flex mr-8">
+             <input
+                type="radio"
                 value="option1"
                 checked={selectedOption === "option1"}
                 onChange={handleChange}
-                className='mr-2'
+                className="mr-2"
               />
               Yes
             </label>
-            <label className='ml-6'>
+            <label className="flex">
               <input
-                type='radio'
+                type="radio"
                 value="option2"
                 checked={selectedOption === "option2"}
                 onChange={handleChange}
-                className='mr-2'
+                className="mr-2"
               />
               No
             </label>
@@ -121,7 +120,7 @@ const CreateAccount = () => {
         </div>
 
         <button
-          className="bg-blue-700 rounded-xl p-4 w-full mt-8 text-white  mb-2 cursor-pointer "
+          className="bg-blue-700 rounded-xl p-4 w-full mt-8 text-white mb-2 cursor-pointer"
           onClick={handleSubmit}
         >
           Create Account
